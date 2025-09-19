@@ -24,8 +24,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Deploy to Heroku
-        uses: AkhileshNS/heroku-deploy@v3.12.12
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
+          branch : "main"
           heroku_api_key: ${{ secrets.Heroku_API_KEY }}
-          heroku_app_name: "nodejs-deploymentv2"
+          heroku_app_name: "nodejs-deployment"
           heroku_email: "gupta99pranjal@gmail.com"
