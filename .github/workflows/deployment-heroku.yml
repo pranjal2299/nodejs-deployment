@@ -14,12 +14,9 @@ jobs:
         run: curl https://cli-assets.heroku.com/install.sh | sh
 
       - name: Deploy to Heroku
-        run: |
-          heroku git:remote -a nodejs-deployment
-          git push heroku main
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-
-
-      - name: Deploy to Heroku
-        run: git push heroku main
+        run: |
+          echo "machine git.heroku.com login $HEROKU_API_KEY password" > ~/.netrc
+          git remote add heroku https://git.heroku.com/nodejs-deployment.git
+          git push heroku main --force
