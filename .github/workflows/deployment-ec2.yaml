@@ -26,7 +26,7 @@ jobs:
       with:
         host: 3.91.233.250
         username: ec2-user
-        key: ${{ secrets.EC2_SSH_KEY }}
+        key: ${{ secrets.EC2_KEY }}
         script: |
           cd /home/ec2-user/nodejs-deployment # Change this to your project path
           git pull origin main
